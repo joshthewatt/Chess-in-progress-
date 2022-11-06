@@ -21,15 +21,18 @@ def LetterToNumber(location):
 class Piece(object):
 
     def __init__(self, name, location):
-        self.location = location #[Letter][Number]
+        self.location = location #[Number][Number]
         self.name = name #[Piece Type][number]
     def move(self, newlocation):
         self.location = newlocation
-    def delete(self):
+    #def delete(self):
 
 
 class whitePawn(Piece):
     def __init__(self, name, location):
         Piece.__init__(self, name, location)
-    def move(self, newloaction):
-        
+    def move(self, newlocation):
+        if newlocation != (self.location % 10) + 1:
+            print("Cannot move there")
+
+
